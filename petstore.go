@@ -15,13 +15,12 @@
 package main
 
 import (
-	"github.com/sololabs/petstore/api"
-
+	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
-	"flag"
-	"fmt"
+	"github.com/sololabs/petstore/api"
 )
 
 func main() {
@@ -37,5 +36,5 @@ func main() {
 		petstoreAPI.ServeHTTP(w, r)
 	})
 	log.Printf("Serving petstore api on http://127.0.0.1:%v/swagger-ui/", *port)
-	http.ListenAndServe(fmt.Sprintf(":%v", *port), logAllRequests)
+	_ = http.ListenAndServe(fmt.Sprintf(":%v", *port), logAllRequests)
 }
