@@ -1,8 +1,10 @@
-apiVersion: skaffold/v1beta10
+apiVersion: skaffold/v1beta13
 kind: Config
 build:
   artifacts:
-  - image: quay.io/sololabs/petstore
+  - image: petstore
+  local:
+    push: true
 deploy:
   kubectl:
     manifests:
